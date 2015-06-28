@@ -60,7 +60,7 @@ public abstract class AbstractProcessor<T_State> extends javax.annotation.proces
             Set<Class<? extends Annotation>> supportedAnnotations = processing.supportedAnnotations();
             for (Class<? extends Annotation> annotation : supportedAnnotations) {
                 Set<? extends Element> elements = roundEnv.getElementsAnnotatedWith(annotation);
-                processing.process(elements, roundEnv);
+                processing.process(elements, annotation, roundEnv);
 
                 if (isInvalid()) return false;
             }

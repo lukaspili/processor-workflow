@@ -20,6 +20,8 @@ public abstract class AbstractProcessing<T_Model, T_State> {
     protected final Errors errors;
     protected final T_State state;
     protected final List<T_Model> specs;
+
+    protected Class<? extends Annotation> processedAnnotation;
     protected RoundEnvironment roundEnvironment;
 
     public AbstractProcessing(Elements elements, Types types, Errors errors, T_State state) {
@@ -32,7 +34,8 @@ public abstract class AbstractProcessing<T_Model, T_State> {
 
     public abstract Set<Class<? extends Annotation>> supportedAnnotations();
 
-    public void process(Set<? extends Element> annotationElements, RoundEnvironment roundEnvironment) {
+    public void process(Set<? extends Element> annotationElements, Class<? extends Annotation> processedAnnotation, RoundEnvironment roundEnvironment) {
+        this.processedAnnotation = processedAnnotation;
         this.roundEnvironment = roundEnvironment;
 
         for (Element e : annotationElements) {

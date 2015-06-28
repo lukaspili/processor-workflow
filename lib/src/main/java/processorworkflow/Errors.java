@@ -64,5 +64,9 @@ public class Errors {
         public void addMissing(String reason) {
             errors.addMissing(element, reason);
         }
+
+        public Errors getParent() {
+            return errors;
+        }
     }
 }

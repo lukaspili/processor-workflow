@@ -19,13 +19,11 @@ public abstract class AbstractExtractor {
         this.types = types;
         this.elements = elements;
         this.errors = errors.getFor(element);
-
-        extract();
     }
 
     public Element getElement() {
         return element;
     }
 
-    protected abstract void extract();
+    public abstract void extract();
 }
