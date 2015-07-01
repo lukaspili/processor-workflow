@@ -12,6 +12,6 @@ Annotation processors that work successfully with processor workflow:
 
 ```groovy
 dependencies {
-    compile 'com.github.lukaspili.processor-workflow:processor-workflow:1.0'
+    compile 'com.github.lukaspili.processor-workflow:processor-workflow:1.0.1'
 }
 ```

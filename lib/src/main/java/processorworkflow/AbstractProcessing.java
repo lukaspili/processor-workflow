@@ -38,6 +38,10 @@ public abstract class AbstractProcessing<T_Model, T_State> {
         this.processedAnnotation = processedAnnotation;
         this.roundEnvironment = roundEnvironment;
 
+        processElements(annotationElements);
+    }
+
+    protected void processElements(Set<? extends Element> annotationElements) {
         for (Element e : annotationElements) {
             boolean success = processElement(e, errors.getFor(e));
             if (!success) {
