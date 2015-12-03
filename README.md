@@ -13,6 +13,6 @@ You can see an example of processor workflow implementation in the following pro
 
 ```groovy
 dependencies {
-    compile 'com.github.lukaspili.processor-workflow:processor-workflow:1.0.2'
+    compile 'com.github.lukaspili.processor-workflow:processor-workflow:1.0.3'
 }
 ```
