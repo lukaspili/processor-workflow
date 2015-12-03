@@ -14,11 +14,19 @@ public class Errors {
 
     private final List<Error> list = new LinkedList<>();
 
-    public void addInvalid(Element element, String reason) {
+    public void addInvalid(Element element, String reason, Object... format) {
+        if (format != null) {
+            reason = String.format(reason, format);
+        }
+
         list.add(new Error(element, String.format("Invalid value: %s", reason)));
     }
 
-    public void addMissing(Element element, String reason) {
+    public void addMissing(Element element, String reason, Object... format) {
+        if (format != null) {
+            reason = String.format(reason, format);
+        }
+
         list.add(new Error(element, String.format("Missing value: %s", reason)));
     }
 
@@ -57,12 +65,12 @@ public class Errors {
             this.element = element;
         }
 
-        public void addInvalid(String reason) {
-            errors.addInvalid(element, reason);
+        public void addInvalid(String reason, Object... format) {
+            errors.addInvalid(element, reason, format);
         }
 
-        public void addMissing(String reason) {
-            errors.addMissing(element, reason);
+        public void addMissing(String reason, Object... format) {
+            errors.addMissing(element, reason, format);
         }
 
         public Errors getParent() {
